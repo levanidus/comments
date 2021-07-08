@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/comments', [CommentController::class, 'index']);
+Route::prefix('/comment')->group(function() {
+    Route::post('/store', [CommentController::class, 'store']);
+    Route::put('/{id}', [CommentController::class, 'update']);
+});
+
+

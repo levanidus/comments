@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Comment;
+
 class CommentController extends Controller
 {
     /**
@@ -13,17 +15,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return Comment::orderBy('created_at', 'DESC')->get();
     }
 
     /**
@@ -34,7 +26,12 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newComment = new Comment;
+        $newComment->author = $request->comment['author'];
+        $newComment->comment = $request->comment['comment'];
+        $newComment->save();
+
+        return $newComment;
     }
 
     /**
