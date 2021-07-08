@@ -14,7 +14,7 @@ services:
       - DB_PORT=3306
       - DB_HOST=mysql
     ports:
-      - "80:80" 
+      - "8080:80" 
   mysql:
     container_name: app_mysql
     image: mysql:5.7

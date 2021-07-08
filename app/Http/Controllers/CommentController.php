@@ -35,28 +35,6 @@ class CommentController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -65,17 +43,14 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $existingComment = Comment::find($id);
+        if ($existingComment) {
+            $existingComment->comment = $request->comment["comment"];
+            $existingComment->save(); 
+            return $existingComment;
+        }
+
+        return 'Comment not found.';
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
