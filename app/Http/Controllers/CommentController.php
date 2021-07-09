@@ -28,7 +28,7 @@ class CommentController extends Controller
     {
         $newComment = new Comment;
         $newComment->author = $request->comment['author'];
-        $newComment->comment = $request->comment['comment'];
+        $newComment->text = $request->comment['text'];
         $newComment->save();
 
         return $newComment;
@@ -45,7 +45,7 @@ class CommentController extends Controller
     {
         $existingComment = Comment::find($id);
         if ($existingComment) {
-            $existingComment->comment = $request->comment["comment"];
+            $existingComment->text = $request->comment["text"];
             $existingComment->save(); 
             return $existingComment;
         }
