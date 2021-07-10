@@ -31,6 +31,7 @@
           if (response.status == 201) {
             this.comment.author = '';
             this.comment.text = '';
+            this.$emit('newcomment');
           }
         })
         .catch(error => {

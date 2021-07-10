@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-2">&nbsp;</div>
             <div class="col-8">
-                <add-comment />
-                <comments-list />
+                <add-comment v-on:newcomment="getComments()"/>
+                <comments-list :comments="comments"/>
             </div>
             <div class="col-2">&nbsp;</div>
         </div>
@@ -14,10 +14,29 @@
 <script>
 import addComment from './addComment'
 import commentsList from './commentsList'
-import CommentsList from './commentsList.vue'
 
 export default {
-    components: { addComment, commentsList }
+    components: { addComment, commentsList },
+    data: function() {
+        return {
+            comments: []
+        }
+    }, 
+    methods: {
+        getComments()  {
+            axios.get('/api/comments')
+            .then(response => {
+                this.comments = response.data
+            })
+            .catch(error => {
+                console.log(error)
+            });
+        }
+    },
+    created() {
+        this.getComments();
+    }
+
 }
 </script>
 

@@ -53,4 +53,15 @@ class CommentController extends Controller
         return 'Comment not found.';
     }
 
+    public function delete(Request $request, $id)
+    {
+        $existingComment = Comment::find($id);
+        if ($existingComment) {
+            $existingComment->delete(); 
+            return "Comment successfully deleted.";
+        }
+
+        return 'Comment not found.';
+    }
+
 }
