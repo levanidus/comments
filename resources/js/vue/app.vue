@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-2">&nbsp;</div>
             <div class="col-8">
-                <add-comment v-on:newcomment="getComments()"/>
-                <comments-list :comments="comments"/>
+                <add-comment v-on:newcomment="getComments()" />
+                <comments-list :comments="comments" v-on:loadcommentslist="getComments()"/>
             </div>
             <div class="col-2">&nbsp;</div>
         </div>
