@@ -14,7 +14,7 @@
 <script>
 import addComment from './addComment'
 import commentsList from './commentsList'
-
+ 
 export default {
     components: { addComment, commentsList },
     data: function() {

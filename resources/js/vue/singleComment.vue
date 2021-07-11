@@ -2,13 +2,13 @@
     <div>
         <div>
             <div v-show="!isEditing">
-                {{ comment.text }} 
+                {{ comment.text }}
                 <b-dropdown size="sm" text="" class="m-2">
                     <b-dropdown-item-button @click="showEditComment()">Редактировать</b-dropdown-item-button>
                     <b-dropdown-item-button @click="showModal()">Удалить</b-dropdown-item-button>
                 </b-dropdown>
                 <br>
-                <b-icon icon="person"></b-icon>&nbsp;<span class="person">{{ comment.author }}</span>
+                <b-icon icon="person"></b-icon>&nbsp;<span class="person">{{ comment.author }}&nbsp;{{ formatCommentDate(comment.created_at) }}</span>
             </div>
             <div v-show="isEditing">
                 <b-form-input v-model="editComment.text" type="text" class="form-control" placeholder="Комментарий"></b-form-input>
@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
     data() {
         return {
@@ -63,7 +65,13 @@ export default {
         },
         showModal() {
             this.$emit('showmodal');
+        },
+        formatCommentDate(date) {
+            return moment(date).format('DD MMMM');
         }
+    },
+    created() {
+        moment.locale('ru');
     }
 }
 </script>
