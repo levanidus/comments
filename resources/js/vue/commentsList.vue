@@ -4,7 +4,9 @@
         <div v-for="(comment, index) in comments" :key="index">
             <single-comment 
                 :comment="comment"
-            v-on:showmodal="showModal(comment.id)"/>
+            v-on:showmodal="showModal(comment.id)"
+            />
+            <br>
         </div>
         <b-modal ref="delmodal" hide-header hide-footer>
             <div class="d-block text-center">
@@ -34,6 +36,7 @@ export default {
             this.deletecommentid = deletecommentid;        
         },
         hideModal() {
+            this.deletecommentid = 0;
             this.$refs['delmodal'].hide();
         }, 
         deleteComment() {

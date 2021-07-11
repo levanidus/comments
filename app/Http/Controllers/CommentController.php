@@ -53,7 +53,7 @@ class CommentController extends Controller
         return 'Comment not found.';
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
         $existingComment = Comment::find($id);
         if ($existingComment) {
