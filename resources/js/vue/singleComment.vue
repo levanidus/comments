@@ -14,9 +14,14 @@
                 <b-form-input v-model="editComment.text" type="text" class="form-control" placeholder="Комментарий"></b-form-input>
                 <br>
                 <b-button variant="primary"
-                    @click="saveEditedComment()">Сохранить</b-button> 
+                    @click="saveEditedComment()"
+                    :class="[ editComment.text ? '' : 'disabled']">
+                    Сохранить
+                </b-button> 
                 <b-button variant="secondary"
-                    @click="hideEditComment()">Отмена</b-button>           
+                    @click="hideEditComment()">
+                    Отмена
+                </b-button>           
             </div>
         </div>
     </div>

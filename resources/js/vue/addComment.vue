@@ -9,6 +9,8 @@
         <b-button variant="primary"
             :class="[ comment.author && comment.text ? '' : 'disabled']"
             @click="addComment()">Сохранить</b-button>
+        <b-button variant="secondary"
+            @click="clearComment()">Отмена</b-button>    
     </div>
 </template>
 
@@ -37,6 +39,10 @@
         .catch(error => {
           console.log(error);
         });
+      },
+      clearComment() {
+        this.comment.author = '';
+        this.comment.text = '';  
       }
     }
   }
