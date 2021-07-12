@@ -10,5 +10,6 @@ DB_DATABASE=app
 DB_USERNAME=root
 DB_PASSWORD=secret 
 6. docker-compose up -d
-7. docker exec -ti app_phpfpm bash -c "php artisan migrate && php artisan key:generate"
-8. В браузере - http://localhost:8080
+7. Подождать чтобы сервисы запустились
+8. docker exec -ti app_phpfpm bash -c "php artisan migrate && php artisan key:generate"
+9. В браузере - http://localhost:8080
