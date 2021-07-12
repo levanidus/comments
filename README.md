@@ -9,4 +9,6 @@ DB_HOST=mysql
 DB_DATABASE=app
 DB_USERNAME=root
 DB_PASSWORD=secret 
-6. В браузере - http://localhost:8080
+6. docker-compose up -d
+7. docker exec -ti app_phpfpm bash -c "php artisan migrate && php artisan key:generate"
+8. В браузере - http://localhost:8080
