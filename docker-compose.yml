@@ -19,7 +19,7 @@ services:
     container_name: app_mysql
     image: mysql:5.7
     volumes:
-     - ${HOME}/commentsmysql/app:/var/lib/mysql
+     - ${HOME}/commentsmysql:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=secret
       - MYSQL_DATABASE=app
