@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 mkdir ${HOME}/commentsmysql
 cd ${HOME}/comments
