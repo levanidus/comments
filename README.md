@@ -5,6 +5,7 @@
 3. cd ${HOME}/comments
 4. cp .env.example .env
 5. Прописываем в .env
+DB_HOST=mysql
 DB_DATABASE=app
 DB_USERNAME=root
 DB_PASSWORD=secret
